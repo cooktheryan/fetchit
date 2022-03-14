@@ -278,7 +278,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "color changes" -a
-          git push
+          git push -f
 
       - name: pull artifact
         uses: actions/download-artifact@v1
@@ -293,7 +293,7 @@ jobs:
         run: | 
           sed -i 's|  url: http://github.com/redhat-et/harpoon|  url: http://github.com/${{ github.repository }}|g' /home/runner/work/harpoon/harpoon/main/examples/ci-config.yaml
           sed -i 's|   branch: ci|  branch: "{{ github.ref }}"|g' /home/runner/work/harpoon/harpoon/main/examples/ci-config.yaml
-          
+
       - name: Start harpoon
         run: sudo podman run -d --name harpoon -v harpoon-volume:/opt -v /home/runner/work/harpoon/harpoon/main/examples/ci-config.yaml:/opt/config.yaml -v /run/podman/podman.sock:/run/podman/podman.sock quay.io/harpoon/harpoon-amd:latest
 
@@ -314,7 +314,7 @@ jobs:
       - name: Commit files
         run: |
           git commit -m "Add changes" -a
-          git push
+          git push -f
 
       - name: Wait for harpoon to deploy
         run: sleep 2m
