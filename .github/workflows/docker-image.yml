@@ -277,7 +277,7 @@ jobs:
             git config --local user.name "github-actions[bot]"
             git commit -m "color changes" -a
             git push -f
-            fi
+          fi
 
       - name: pull artifact
         uses: actions/download-artifact@v1
@@ -307,12 +307,12 @@ jobs:
 
       - name: update variable
         run: |
-          cat <<< $(jq '.Env.APP_COLOR |= "pink"' ./ci/examples/raw/color1.json) > ./ci//examples/raw/color1.json 
-
+          cat <<< $(jq '.Env.APP_COLOR |= "pink"' ./examples/raw/color1.json) > ./examples/raw/color1.json 
+          cat ./examples/raw/color1.json
 
       - name: Commit files
         run: |
-          git commit -m "Add changes" -a
+          git commit -am "Add changes"
           git push -f
 
       - name: Wait for harpoon to deploy
