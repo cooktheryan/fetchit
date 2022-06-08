@@ -14,10 +14,10 @@ To enable the socket for $USER:
 systemctl --user enable podman.socket --now
 ```
 
-To enable the socker for root:
+To enable the socket for root:
 
 ```
-systemctl enable podman.socket
+systemctl enable podman.socket --now
 ```
 
 
@@ -39,7 +39,7 @@ This example can be found in [./examples/readme-config.yaml](examples/readme-con
 ```
 targets:
 - name: fetchit
-  url: http://github.com/redhat-et/fetchit
+  url: http://github.com/containers/fetchit
   branch: main
   fileTransfer:
     targetPath: examples/fileTransfer/hello.txt
@@ -88,7 +88,7 @@ The container will be started and will run in the background. To view the logs:
 ```
 podman logs -f fetchit
 
-git clone http://github.com/redhat-et/fetchit main --recursive
+git clone http://github.com/containers/fetchit main --recursive
 Creating podman container from ./fetchit/examples/raw/example.json
 Trying to pull docker.io/mmumshad/simple-webapp-color:latest...
 Getting image source signatures
