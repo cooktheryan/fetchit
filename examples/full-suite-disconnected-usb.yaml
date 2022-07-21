@@ -1,10 +1,15 @@
+images:
+  - name: colors 
+    imagePath: colors/colors.tar
+    device: /dev/ram1
+    schedule: "*/1 * * * *"
 targetConfigs:
 - name: fetchit
   disconnected: true
-  device: /dev/sda1
+  device: /dev/ram1
   raw:
   - name: raw-ex
-    targetPath: examples/raw
+    targetPath: examples/disconnected
     schedule: "*/1 * * * *"
     pullImage: false
   systemd:
