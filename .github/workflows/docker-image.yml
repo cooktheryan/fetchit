@@ -1262,20 +1262,11 @@ jobs:
          sudo podman load -i /tmp/ansible-amd.tar
          sudo podman tag quay.io/fetchit/fetchit-ansible-amd:latest quay.io/fetchit/fetchit-ansible:latest
 
-      - name: pull artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: colors
-          path: /tmp
-
       - name: Load the image
         run: |
-          sudo podman load -i /tmp/colors.tar
+          sudo podman pull httpd:alpine3.16
           sudo rm -rf /tmp/colors.tar
-
-      - name: tag the image and archive
-        run: |
-          sudo podman tag docker.io/mmumshad/simple-webapp-color:latest localhost/colors:latest
+          sudo podman tag httpd:alpine3.16 localhost/colors:latest
           sudo podman save -o /tmp/colors.tar localhost/colors:latest
 
       - name: Make directory
