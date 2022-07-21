@@ -1275,8 +1275,8 @@ jobs:
 
       - name: tag the image and archive
         run: |
-          podman tag docker.io/mmumshad/simple-webapp-color:latest localhost/colors:latest
-          podman save -o /tmp/colors.tar localhost/colors:latest
+          sudo podman tag docker.io/mmumshad/simple-webapp-color:latest localhost/colors:latest
+          sudo podman save -o /tmp/colors.tar localhost/colors:latest
 
       - name: Make directory
         run: mkdir -p /tmp/ft
