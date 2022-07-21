@@ -1283,7 +1283,7 @@ jobs:
 
       - name: Create fake disk and copy assets
         run: |
-          sudo mkfs -q /dev/ram1 2048
+          sudo mkfs -q /dev/ram1 4096
           sudo mkdir -p /ramcache
           sudo mount /dev/ram1 /ramcache
           sudo mount /dev/ram1 /mnt
