@@ -1,5 +1,5 @@
 {
-    "Image":"docker.io/mmumshad/simple-webapp-color:latest",
+    "Image":"localhost/colors:v0.1",
     "Name": "colors1",
     "Env": {"APP_COLOR": "blue", "tree": "trunk"},
     "Mounts": [],
