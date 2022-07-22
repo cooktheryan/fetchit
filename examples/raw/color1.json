@@ -1,5 +1,5 @@
 {
-    "Image":"localhost/colors:v0.1",
+    "Image":"localhost/colors:v0.2",
     "Name": "colors1",
     "Env": {"APP_COLOR": "blue", "tree": "trunk"},
     "Mounts": [],
