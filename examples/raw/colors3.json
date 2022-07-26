@@ -1,6 +1,6 @@
 {
     "Image":"localhost/colors:v0.2",
-    "Name": "colors1",
+    "Name": "colors2",
     "Env": {"MYSQL_ROOT_PASSWORD": "root", "MYSQL_DATABASE": "db"},
     "Mounts": [],
     "Volumes": [],
