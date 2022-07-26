@@ -1,13 +1,13 @@
 {
-    "Image":"localhost/colors:v0.2",
-    "Name": "colors3",
+    "Image":"localhost/db:v0.1",
+    "Name": "db",
     "Env": {"APP_COLOR": "pink", "tree": "trunk"},
     "Mounts": [],
     "Volumes": [],
     "Ports": [{
         "host_ip":        "",
-        "container_port": 8080,
-        "host_port":      9091,
+        "container_port": 3306,
+        "host_port":      3306,
         "range":         0,
         "protocol":      ""}]
 }
