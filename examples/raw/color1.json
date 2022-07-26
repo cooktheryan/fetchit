@@ -1,6 +1,6 @@
 {
     "Image":"localhost/colors:v0.2",
-    "Name": "colors3",
+    "Name": "colors1",
     "Env": {"APP_COLOR": "blue", "tree": "trunk"},
     "Mounts": [],
     "Volumes": [],
