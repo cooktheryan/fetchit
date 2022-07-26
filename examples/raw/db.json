@@ -1,7 +1,7 @@
 {
     "Image":"localhost/db:v0.1",
     "Name": "db",
-    "Env": {"APP_COLOR": "pink", "tree": "trunk"},
+    "Env": {"MYSQL_ROOT_PASSWORD": "root", "MYSQL_DATABASE": "db"},
     "Mounts": [],
     "Volumes": [],
     "Ports": [{
