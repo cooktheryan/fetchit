@@ -1,13 +1,13 @@
 {
-    "Image":"localhost/db:v0.1",
-    "Name": "db",
+    "Image":"localhost/colors:v0.2",
+    "Name": "colors1",
     "Env": {"MYSQL_ROOT_PASSWORD": "root", "MYSQL_DATABASE": "db"},
     "Mounts": [],
     "Volumes": [],
     "Ports": [{
         "host_ip":        "",
-        "container_port": 3306,
-        "host_port":      3306,
+        "container_port": 8080,
+        "host_port":      8080,
         "range":         0,
         "protocol":      ""}]
 }
