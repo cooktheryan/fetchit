@@ -31,6 +31,24 @@ jobs:
           curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh \
             | CONFIGURE=false INSTALL_PATH=/home/runner/.local/bin bash
           echo "/home/runner/.local/bin" >> $GITHUB_PATH
+
+      - name: Configure Goose with Ollama
+        run: |
+          # Create a config file for Goose
+          mkdir -p ~/.config/goose
+          
+          cat > ~/.config/goose/config.toml <<EOF
+          [default]
+          provider = "ollama"
+          model = "${{ env.OLLAMA_MODEL }}"
+          
+          [providers.ollama]
+          host = "${{ env.OLLAMA_HOST }}"
+          EOF
+          
+          # Verify the configuration
+          echo "Goose configuration created:"
+          cat ~/.config/goose/config.toml
       
       - name: Get issue details
         id: issue
@@ -58,26 +76,12 @@ jobs:
       - name: Run Goose to analyze and fix issue
         id: goose-fix
         run: |
-          # Set up Goose configuration to use your Ollama instance
-          echo "Using Ollama instance at $OLLAMA_HOST"
-          
-          # Create a temporary goose config file with your Ollama settings
-          cat > .goose.yaml <<EOF
-          model:
-            provider: ollama
-            name: ${{ secrets.OLLAMA_MODEL }}
-            host: ${{ env.OLLAMA_HOST }}
-          EOF
-          
           # Run Goose to analyze the codebase and generate fixes based on the issue
           ISSUE_TITLE="${{ steps.issue.outputs.title }}"
           ISSUE_BODY="${{ steps.issue.outputs.body }}"
           
           echo "Issue to resolve: $ISSUE_TITLE"
           echo "Running Goose to analyze and propose fixes..."
-          
-          # Create a task description for Goose
-          echo "$ISSUE_TITLE\n\n$ISSUE_BODY" > issue_description.txt
           
           # Run Goose with the task
           # Using the -t/--text option to provide the issue description directly
