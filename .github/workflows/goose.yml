@@ -27,7 +27,7 @@ jobs:
           
       - name: Install Goose
         run: |
-          pip install block-goose
+          pip install goose-block
           goose --version
       
       - name: Get issue details
