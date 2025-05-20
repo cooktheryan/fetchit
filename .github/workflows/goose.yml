@@ -37,13 +37,47 @@ jobs:
           # Create a config file for Goose
           mkdir -p ~/.config/goose
           
-          cat > ~/.config/goose/config.toml <<EOF
-          [default]
-          provider = "ollama"
-          model = "${{ env.OLLAMA_MODEL }}"
-          
-          [providers.ollama]
-          host = "${{ env.OLLAMA_HOST }}"
+          cat > ~/.config/goose/config.yaml <<EOF
+          extensions:
+            computercontroller:
+              bundled: true
+              display_name: Computer Controller
+              enabled: false
+              name: computercontroller
+              timeout: 300
+              type: builtin
+            developer:
+              bundled: true
+              display_name: Developer
+              enabled: true
+              name: developer
+              timeout: 300
+              type: builtin
+            jetbrains:
+              bundled: true
+              display_name: Jetbrains
+              enabled: false
+              name: jetbrains
+              timeout: 300
+              type: builtin
+            memory:
+              bundled: true
+              display_name: Memory
+              enabled: false
+              name: memory
+              timeout: 300
+              type: builtin
+            tutorial:
+              bundled: true
+              display_name: Tutorial
+              enabled: false
+              name: tutorial
+              timeout: 300
+              type: builtin
+          GOOSE_MODE: smart_approve
+          GOOSE_MODEL: qwen3:8b
+          GOOSE_PROVIDER: ollama
+          OLLAMA_HOST: ${{ secrets.OLLAMA_HOST }}
           EOF
           
           # Verify the configuration
