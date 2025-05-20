@@ -7,7 +7,7 @@ https://fetchit.readthedocs.io/
 A quickstart example is available at https://github.com/containers/fetchit/blob/main/docs/quick_start.rst
 
 ## Developing
-To develop and test changes of FetchIt, the FetchIt image can be built locally and then run on the development system.
+To develop and test changes of FetchIt, the FetchIt image can be built locally and then run on the development system.  
 
 ```
 go mod tidy
