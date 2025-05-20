@@ -80,7 +80,8 @@ jobs:
           echo "$ISSUE_TITLE\n\n$ISSUE_BODY" > issue_description.txt
           
           # Run Goose with the task
-          goose run --task-file issue_description.txt --auto-fix
+          # Using the -t/--text option to provide the issue description directly
+          goose run -t "Fix the following issue: $ISSUE_TITLE\n\n$ISSUE_BODY" --with-builtin developer
           
           # Check if any changes were made
           if [[ -z $(git status --porcelain) ]]; then
