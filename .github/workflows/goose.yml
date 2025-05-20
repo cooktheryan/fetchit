@@ -79,10 +79,6 @@ jobs:
           GOOSE_PROVIDER: ollama
           OLLAMA_HOST: ${{ secrets.OLLAMA_HOST }}
           EOF
-          
-          # Verify the configuration
-          echo "Goose configuration created:"
-          cat ~/.config/goose/config.toml
       
       - name: Get issue details
         id: issue
