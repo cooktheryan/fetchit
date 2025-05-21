@@ -53,6 +53,20 @@ jobs:
               name: developer
               timeout: 300
               type: builtin
+            filesystem:
+              args:
+              - -y
+              - '@modelcontextprotocol/server-filesystem'
+              - /home/runner/work/fetchit
+              bundled: null
+              cmd: npx
+              description: null
+              enabled: true
+              env_keys: []
+              envs: {}
+              name: filesystem
+              timeout: 300
+              type: stdio
             jetbrains:
               bundled: true
               display_name: Jetbrains
@@ -115,7 +129,7 @@ jobs:
           
           # Run Goose with the task
           # Using the -t/--text option to provide the issue description directly
-          goose run -t "Fix the following issue: $ISSUE_TITLE\n\n$ISSUE_BODY" --with-builtin developer
+          goose run -t "Fix the following issue: $ISSUE_TITLE\n\n$ISSUE_BODY using the files located in the directory /home/runner/work/fetchit and the subdirectories underneath." --with-builtin developer
           
           # Check if any changes were made
           if [[ -z $(git status --porcelain) ]]; then
